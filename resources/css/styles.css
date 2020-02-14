@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo');
+
+body,html{
+	height:100%;
+	overflow: hidden;
+	margin:0;
+}
+
+figure img{
+	width:100%;
+	height: 100%;
+	border: none;
+}
+
+figure{
+	width: 25%;
+	height: 100%;
+	margin: 0 0 0 0;
+	padding-right: 20px;
+	float:left;
+}
+
+.photo img{
+	width:100%;
+	height: 100%;
+	margin:0;
+	position: relative;
+	top:0;
+}
+
+.photo{
+	background: rgb(86,84,84);
+	height: 85%;
+	width:100%;
+	margin:0;
+	position: relative;
+}
+
+.top-menu {
+  background: 	rgb(192,192,192,.3);
+  box-shadow: 3px 0 7px rgba(0,0,0,.3);
+  padding: 20px;
+}
+.top-menu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.navbar-logo {display: inline-block;}
+.menu-main {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+.menu-main li {display: inline-block;}
+.menu-main a {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  line-height: 10px;
+  padding-left: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
+  color: #F73E24;
+  transition:.3s linear;
+}
+
+.menu-main a:hover:before {opacity: 1;}
+@media (max-width: 660px) {
+.menu-main {
+  float: none;
+  padding-top: 20px;
+}
+.top-menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+.menu-main a {padding: 0 10px;}
+.menu-main a:before {transform: rotate(45deg) translateX(-6px);}
+}
+@media (max-width: 600px) {
+.menu-main li {display: block;}
+}

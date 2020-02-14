@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <style>
+    </style>
+    <title>Test</title>
+
+	<link rel="stylesheet" type="text/css" href="./resources/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="./resources/css/common.css">
+    <link rel="stylesheet" type="text/css"  href="./resources/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./resources/js/jquery.min.js"></script>
+    <script src="./resources/js/bootstrap.min.js"></script>
+	<script src="./resources/js/sha1.js"></script>
+	
+</head>
+<body>
+    <nav class="top-menu">
+		<a class="navbar-logo" href=""><figure><img src="./resources/images/3.png"></figure></a>
+		
+		<ul class="menu-main">
+			<li><a class="signupname" data-toggle="modal" href="#register"><span class="fa fa-user"></span></a></li>
+			<li><a class="loginname" data-toggle="modal" href="#login"><span class="fa fa-log-in"></span></a></li>	
+			<li><a class="forgotname" data-toggle="modal" href="#forgot"><span class="fa fa-log-in"></span></a></li>		
+		</ul>	
+	</nav>
+	<div class="photo">
+	<img src="./resources/images/belaz2.jpg">
+	</div>
+    <div class="container">
+        <div class="modal fade" id="login" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="loginname" style="color:red;"><span class="fa fa-lock"></span> </h4>
+					</div>
+					<div class="modal-body">
+						<form onsubmit="login(this)" role="form" method="POST" class="form-signin">
+							<div class="form-group ${error != null ? 'has-error' : ''}">
+								<label class="mailname" for="usrname"><span class="fa fa-user"></span></label>
+								<input name="username" type="text" class="form-control entermailname" id="usrname" autofocus="true">
+							</div>
+							<div class="form-group">
+								<label class="passwordname" for="psw"><span class="fa fa-eye-open"></span></label>
+								<input name="password" type="password" class="form-control enterpassname" id="psw">
+							</div>
+							<div>
+								<span type="hidden" name="loginError"></span>
+							</div>
+							<button type="submit" class="btn btn-default btn-success btn-block"><span class="fa fa-off"></span> Login</button>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="fa fa-remove"></span> Cancel</button>
+						<p>Not a member? <a class="signupname" data-toggle="modal" href="#signup"></a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="modal fade" data-backdrop="false"  id="register" role="dialog">
+			<div class="modal-dialog">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 style="color:red;"><span class="fa fa-lock"></span> Create your account</h4>
+					</div>
+					<div class="modal-body">
+						<form method="POST">
+							<div class="form-group ${status.error ? 'has-error' : ''}">
+								<label class="mailname"><span class="fa fa-user"></span></label>
+								<input name="username" type="text" class="form-control entermailname" id="usrname" autofocus="true">
+							</div>
+							<div class="form-group ${status.error ? 'has-error' : ''}">
+								<label class="mailrepeatename"><span class="fa fa-user"></span></label>
+								<input name="confirmusername" type="text" class="form-control entermailname" id="usrname" autofocus="true">
+							</div>
+							<div class="form-group ${status.error ? 'has-error' : ''}">
+								<label class="passwordname"><span class="fa fa-eye-open"></span></label>
+								<input name="password" type="password" class="form-control enterpassname" id="psw">
+							</div>
+
+							<div class="form-group ${status.error ? 'has-error' : ''}">
+								<label class="passwordrepeatename"><span class="fa fa-eye-open"></span></label>
+								<input name="confirmpassword" type="password" class="form-control enterpassname" id="psw">
+							</div>
+							<div>
+								<span type="hidden" name="regError"></span>
+							</div>
+							
+							<div onclick="register(this.parentElement)" class="btn btn-default btn-success btn-block signupname"><span class="fa fa-off"></span></div>
+							
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="fa fa-remove"></span> Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="modal fade" id="forgot"" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="forgotname" style="color:red;"><span class="fa fa-lock"></span> </h4>
+					</div>
+					<div class="modal-body">
+						<form onsubmit="forgot(this)" role="form" method="POST" class="form-signin">
+							<div class="form-group">
+								<label class="mailname"><span class="fa fa-user"></span></label>
+								<input name="username" type="text" class="form-control entermailname" id="usrname" autofocus="true">
+							</div>
+							<div>
+								<span type="hidden" name="loginError"></span>
+							</div>
+							<button type="submit" class="btn btn-default btn-success btn-block сontinuename"><span class="fa fa-off"></span></button>
+						</form>
+					</div>
+					<div>
+						<span type="hidden" name="forgotError"></span>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="fa fa-remove"></span> Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</body>
+<script src="./resources/js/functions.js"></script>
+</html>
